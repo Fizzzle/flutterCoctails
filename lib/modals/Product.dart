@@ -12,12 +12,12 @@ class Product with ChangeNotifier {
   final color;
 
   Product(
-      {@required this.id,
-      @required this.title,
-      @required this.price,
-      @required this.description,
-      @required this.imgUrl,
-      @required this.color});
+      {required this.id,
+      required this.title,
+      required this.price,
+      required this.description,
+      required this.imgUrl,
+      required this.color});
 }
 
 class ProductDataProvider with ChangeNotifier {
@@ -37,23 +37,24 @@ class ProductDataProvider with ChangeNotifier {
       description: 'Делается методом шейк',
       price: 180,
       imgUrl: 'https://event.ru/wp-content/uploads/2014/03/13.jpg',
-      color: '0xFFF8BBD0',
+      color: '0xFFFFF59D',
     ),
     Product(
       id: 'p2',
       title: 'Дайкири',
       description: 'Делается методом шейк',
       price: 220,
-      imgUrl: 'https://event.ru/wp-content/uploads/2014/03/13.jpg',
-      color: '0xFFF8BBD0',
+      imgUrl:
+          'https://upload.wikimedia.org/wikipedia/commons/f/fd/Classic_Daiquiri_in_Cocktail_Glass.jpg',
+      color: '0xFFCCFF90',
     ),
     Product(
       id: 'p3',
-      title: 'Лонг Айленд',
+      title: 'root говнюк',
       description: 'Делается методом шейк',
       price: 220,
-      imgUrl: 'https://event.ru/wp-content/uploads/2014/03/13.jpg',
-      color: '0xFFF8BBD0',
+      imgUrl: 'https://i.ibb.co/jGL70hM/image.jpg',
+      color: '0xFFBBDEFB',
     ),
   ];
 

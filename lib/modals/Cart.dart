@@ -11,11 +11,11 @@ class Cart {
   final String imgUrl;
 
   Cart(
-      {@required this.id,
-      @required this.title,
-      @required this.number,
-      @required this.price,
-      @required this.imgUrl});
+      {required this.id,
+      required this.title,
+      required this.number,
+      required this.price,
+      required this.imgUrl});
 }
 
 // Provider
