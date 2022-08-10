@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:coctails_app/modals/Product.dart';
 
+import '../widgets/catalog.dart';
 import '../widgets/item_card.dart';
 
 class HomePage extends StatelessWidget {
@@ -46,7 +47,7 @@ class HomePage extends StatelessWidget {
               ),
               Container(
                 padding: const EdgeInsets.all(5.0),
-                height: 290,
+                height: 430,
                 child: ListView.builder(
                   scrollDirection: Axis.horizontal,
                   itemCount: productData.items.length,
@@ -60,15 +61,22 @@ class HomePage extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(10.0),
                 child: Text(
-                  'Каталог коктейлей',
+                  'Летние коктейли',
                   style: TextStyle(
                     fontSize: 22,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              Container(
-                child: Text('Список Каталогов'),
+              ...productData.items.map((value) {
+                return CatalogListTile(imgUrl: value.imgUrl);
+              }).toList(),
+              Text(
+                'Классические коктейли',
+                style: TextStyle(
+                  fontSize: 22,
+                  fontWeight: FontWeight.bold,
+                ),
               ),
             ],
           ),

@@ -22,11 +22,11 @@ class MyApp extends StatelessWidget {
         ),
       ],
       child: MaterialApp(
-        title: 'Demo App',
+        title: 'Coctails App',
         theme: ThemeData(
           primarySwatch: Colors.amber,
           backgroundColor: Colors.white,
-          textTheme: GoogleFonts.marmeladTextTheme(
+          textTheme: GoogleFonts.acmeTextTheme(
             Theme.of(context).textTheme,
           ),
         ),

@@ -1,3 +1,4 @@
+import 'package:coctails_app/modals/cart.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -11,7 +12,7 @@ class ItemCard extends StatelessWidget {
     final product = Provider.of<Product>(context, listen: false);
 
     return Container(
-      width: 150,
+      width: 180,
       padding: const EdgeInsets.all(10.0),
       margin: const EdgeInsets.all(5.0),
       decoration: BoxDecoration(
@@ -20,23 +21,76 @@ class ItemCard extends StatelessWidget {
       ),
       child: Column(
         children: <Widget>[
-          Column(
-            children: <Widget>[
-              Container(
-                height: 160,
-                decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(15),
-                  image: DecorationImage(
-                    image: NetworkImage(product.imgUrl),
-                    fit: BoxFit.cover,
+          GestureDetector(
+            onTap: () {
+              // !- Навигация на страницу об коктейле
+            },
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              children: <Widget>[
+                Container(
+                  height: 160,
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(15),
+                    image: DecorationImage(
+                      image: NetworkImage(product.imgUrl),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
-              ),
-              Container(
-                  child: Text('${product.title}',
-                      style: TextStyle(
-                          fontSize: 16, fontWeight: FontWeight.bold))),
-            ],
+                SizedBox(
+                  height: 5,
+                ),
+                Container(
+                  child: Column(
+                    children: [
+                      Text(
+                        '${product.title}',
+                        style: TextStyle(
+                            fontSize: 18, fontWeight: FontWeight.bold),
+                      ),
+                      SizedBox(
+                        height: 5,
+                      ),
+                      Text(
+                        '${product.description}',
+                        style: TextStyle(
+                          fontSize: 15,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Container(
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  '${product.price}',
+                  style: TextStyle(fontSize: 16),
+                ),
+                IconButton(
+                    onPressed: () {
+                      Provider.of<CartDataProvider>(context, listen: false)
+                          .addItem(
+                        productId: product.id,
+                        price: product.price,
+                        title: product.title,
+                        imgUrl: product.imgUrl,
+                      );
+                    },
+                    icon: Icon(
+                      Icons.add_circle_outline,
+                      color: Colors.black12,
+                      size: 25,
+                    ))
+              ],
+            ),
           ),
         ],
       ),
