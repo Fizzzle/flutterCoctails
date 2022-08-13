@@ -16,7 +16,7 @@ class HomePage extends StatelessWidget {
       backgroundColor: Colors.amberAccent,
       body: SafeArea(
         child: Container(
-          height: MediaQuery.of(context).size.height - 85,
+          height: MediaQuery.of(context).size.height - 15,
           decoration: const BoxDecoration(
             color: Colors.white,
             borderRadius: BorderRadius.only(
